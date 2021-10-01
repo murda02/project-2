@@ -5,6 +5,6 @@ const userRoutes = require('./userRoutes');
 
 router.use('/movie', movieRoutes);
 router.use('/food', foodRoutes);
-router.use('/tags', userRoutes);
+router.use('/user', userRoutes);
 
 module.exports = router;
