@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 let movieBtn = document.getElementById('movie-btn');
 let closeBtn = document.querySelector('#close-btn');
 let popupModal = document.querySelector('.modal');
@@ -91,18 +91,18 @@ function computeTime(inputTime) {
 movieBtn.addEventListener('click', (event) => {
     event.preventDefault();
     
-    let randomJoke = randomJoke();
+    // let randomJoke = randomJoke();
     let genre = myGenre();
     let releaseYear = document.getElementById('year').value;
     let runtime = document.getElementById('runtime').value;
-    
+    console.log("I'm in the button event listener");
     if (genre && releaseYear && runtime) {
         makeUrl(genre, releaseYear, runtime);
     } else {
         popupModal.style.display='block';
     }
 })
-
+console.log("I'm outside the button event listener");
 closeBtn.addEventListener('click', function() {
     popupModal.style.display = 'none';
 });
@@ -131,30 +131,30 @@ async function makeUrl(genre, releaseYear, runtime) {
     getMovieApi(api_url);
 }
 
-function randomJoke();
+// function randomJoke();
 
-async function getJokeApi(url) {
-    const response = await fetch(url);
-    let objects = await response.json();
-    console.log(objects);
-}
+// async function getJokeApi(url) {
+//     const response = await fetch(url);
+//     let objects = await response.json();
+//     console.log(objects);
+// }
 
-async function makeUrl() {
-    let api_url ='https://v2.jokeapi.dev/joke/Programming';
-    getJokeApi(api_url);
-}
+// async function makeUrl() {
+//     let api_url ='https://v2.jokeapi.dev/joke/Programming';
+//     getJokeApi(api_url);
+// }
 
 
-function randomDrink();
+// // function randomDrink();
 
-async function getDrinkApi(url) {
-    const response = await fetch(url);
-    let objects = await response.json();
-    console.log(objects);
-}
+// async function getDrinkApi(url) {
+//     const response = await fetch(url);
+//     let objects = await response.json();
+//     console.log(objects);
+// }
 
-async function makeUrl() {
-    let api_url ='www.thecocktaildb.com/api/json/v1/1/random.php';
-    getDrinkApi(api_url);
-}
+// async function makeUrl() {
+//     let api_url ='www.thecocktaildb.com/api/json/v1/1/random.php';
+//     getDrinkApi(api_url);
+// }
 
