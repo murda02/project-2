@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: center;
+
+}
+
+body {
+    background-color: white;
+
+}
+
+
+.jumbotron{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    border-radius: 1rem;
+}
+
+.jumbotron ,h1 {
+    color: aqua;
+    display: flex;
+    text-align: right;
+    padding-right: 30px;
+    font-size: 1.5em;
+    margin: .625rem 1;
+    
+}
+
+.jumbotron, .card-header {
+    display: flex;
+}
+
+
+.card-body{
+   
+    justify-content: center;
+    vertical-align: auto;
+    padding-top: 20px;
+    color: blue;
+
+}
+
+    
+
