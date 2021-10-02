@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const movieRoutes = require('./movieRoutes');
-const foodRoutes = require('./foodRoutes');
+const drinkRoutes = require('./drinkRoutes');
 const userRoutes = require('./userRoutes');
 
 router.use('/movie', movieRoutes);
-router.use('/food', foodRoutes);
+router.use('/drink', drinkRoutes);
 router.use('/user', userRoutes);
 
 module.exports = router;

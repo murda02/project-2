@@ -1,59 +1,58 @@
-
 const router = require ('express').Router();
-const {Food} = require('../../models');
+const {Drink} = require('../../models');
 
-//GET all food
+//GET all drink
 router.get('/', async (req, res) => {
     try {
-        const foodData = await Food.findALl();
-        res.status(200).json(foodData);
+        const drinkData = await Drink.findAll();
+        res.status(200).json(drinkData);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-//GET a single food
+//GET a single drink
 router.get('/:id', async (req, res) => {
     try {
-        const foodData = await Food.findByPk(req.params.id);
+        const drinkData = await Drink.findByPk(req.params.id);
 
-        if (!foodData) {
-            res.status(404).json({ message: 'Food not found'});
+        if (!drinkData) {
+            res.status(404).json({ message: 'Drink not found'});
             return;
         }
 
-        res.status(200).json(foodData);
+        res.status(200).json(drinkData);
     } catch (error) {
         res.status(500).json(error);
     }
 });
 
 
-//CREATE a food
+//CREATE a drink
 router.post('/', async (req, res) => {
     try {
-      const foodData = await Food.create(req.body);
-      res.status(200).json(foodData);
+      const drinkData = await Drink.create(req.body);
+      res.status(200).json(drinkData);
     } catch (err) {
       res.status(400).json(err);
     }
   });
 
-  // DELETE a food
+  // DELETE a drink
 router.delete('/:id', async (req, res) => {
     try {
-      const foodData = await Food.destroy({
+      const drinkData = await Drink.destroy({
         where: {
           id: req.params.id
         }
       });
   
-      if (!foodData) {
-        res.status(404).json({ message: 'No food found with this id!' });
+      if (!drinkData) {
+        res.status(404).json({ message: 'No drink found with this id!' });
         return;
       }
   
-      res.status(200).json(foodData);
+      res.status(200).json(drinkData);
     } catch (err) {
       res.status(500).json(err);
     }
