@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Fight Club",
+    "genre": "action",
+    "year": 1999,
+    "rating": 9
+  },
+  {
+    "name": "The Big Lebowski",
+    "genre": "comedy",
+    "year": 1998,
+    "rating": 7
+  },
+  {
+    "name": "The Matrix",
+    "genre": "action",
+    "year": 1999,
+    "rating": 8
+  }
+]
