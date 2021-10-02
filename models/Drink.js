@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Food extends Model {}
+class Drink extends Model {}
 
-Food.init(
+Drink.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -18,14 +18,8 @@ Food.init(
     description: {
       type: DataTypes.STRING,
     },
-    active: {
-        type: DataTypes.BOOLEAN,
-    },
-    phone: {
-        type: DataTypes.INTEGER,
-    },
-    street_address: {
-        type: DataTypes.INTEGER,
+    ingredients: {
+        type: DataTypes.STRING,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -44,8 +38,4 @@ Food.init(
   }
 );
 
-// Something to add later is a link to the resteraunts on GrubHub. Example: https://www.grubhub.com/restaurant/five-guys-1855-29th-st-1154-boulder/2804484
-// Breakdown:
-// https://www.grubhub.com/restaurant/[NAME OF RESTERAUNT]-[ADDRESS]-[ID]
-
-module.exports = Food;
+module.exports = Drink;
