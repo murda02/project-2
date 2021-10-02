@@ -19,4 +19,12 @@ module.exports = {
       return `<span for="img" aria-label="gear">⚙️</span>`;
     }
   },
+
+//   get_banner: () => {
+//     return `<span role="img" aria-label="money">🍹</span>
+//     <a href="/">Have a drink and watch a Movie!</a>
+//     <span role="img" aria-label="money">🍿</span>`
+//   }
 };
+
+
