@@ -101,9 +101,10 @@ movieBtn.addEventListener('click', (event) => {
         popupModal.style.display='block';
     }
 })
-console.log("I'm outside the button event listener");
+
 closeBtn.addEventListener('click', function() {
     popupModal.style.display = 'none';
+    event.preventDefault();
 });
 
 async function getMovieApi(url) {
