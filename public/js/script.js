@@ -1,4 +1,3 @@
-require('dotenv').config();
 let movieBtn = document.getElementById('movie-btn');
 let closeBtn = document.querySelector('#close-btn');
 let popupModal = document.querySelector('.modal');
@@ -91,18 +90,18 @@ function computeTime(inputTime) {
 movieBtn.addEventListener('click', (event) => {
     event.preventDefault();
     
-    let randomJoke = randomJoke();
+    getJokeApi();
+    getDrinkApi();
     let genre = myGenre();
     let releaseYear = document.getElementById('year').value;
     let runtime = document.getElementById('runtime').value;
-    
     if (genre && releaseYear && runtime) {
         makeUrl(genre, releaseYear, runtime);
     } else {
         popupModal.style.display='block';
     }
 })
-
+console.log("I'm outside the button event listener");
 closeBtn.addEventListener('click', function() {
     popupModal.style.display = 'none';
 });
@@ -131,30 +130,21 @@ async function makeUrl(genre, releaseYear, runtime) {
     getMovieApi(api_url);
 }
 
-function randomJoke();
+async function getJokeApi() {
+    const response = await fetch('https://v2.jokeapi.dev/joke/Programming')
+    var objects = await response.json();
+    if (objects.type === 'single') {
+        console.log(objects.joke)
+    } else {
+        console.log(objects.setup + " " + objects.delivery);
+    }
+}
 
-async function getJokeApi(url) {
-    const response = await fetch(url);
-    let objects = await response.json();
+async function getDrinkApi() {
+    console.log('This function is initialized'); 
+    const response = await fetch('www.thecocktaildb.com/api/json/v1/1/random.php')
+    console.log('A response is created');
+    var objects = await response.json(); // There's something off here. Will fix in next push
+    console.log('The object is assigned');
     console.log(objects);
 }
-
-async function makeUrl() {
-    let api_url ='https://v2.jokeapi.dev/joke/Programming';
-    getJokeApi(api_url);
-}
-
-
-function randomDrink();
-
-async function getDrinkApi(url) {
-    const response = await fetch(url);
-    let objects = await response.json();
-    console.log(objects);
-}
-
-async function makeUrl() {
-    let api_url ='www.thecocktaildb.com/api/json/v1/1/random.php';
-    getDrinkApi(api_url);
-}
-

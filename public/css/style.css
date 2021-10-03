@@ -1,24 +1,16 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+body{
+  background-color: rgb(204, 201, 197);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+header, span, .project:not(:last-child) {
+  border-bottom: 1px solid rgb(235, 23, 23);
+  color: rgb(19, 158, 112);
+}
+form,ul {
+  background-color:rgb(164, 164, 196);
+  
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
-}
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
-}
+
