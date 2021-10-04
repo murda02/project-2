@@ -12,5 +12,15 @@ form,ul {
   
 }
 
-
+.modal {
+  display: none;
+  position: fixed;
+  background: darkred;
+  padding: 10px;
+  width: 260px;
+  top: 100px;
+  left: calc(50% - 140px);
+  z-index: 1;
+  border-radius: 10px;
+}
 
