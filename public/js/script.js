@@ -90,8 +90,8 @@ function computeTime(inputTime) {
 movieBtn.addEventListener('click', (event) => {
     event.preventDefault();
     
-    getJokeApi();
-    getDrinkApi();
+    //getJokeApi();
+    //getDrinkApi();
     let genre = myGenre();
     let releaseYear = document.getElementById('year').value;
     let runtime = document.getElementById('runtime').value;
@@ -132,11 +132,15 @@ async function makeUrl(genre, releaseYear, runtime) {
 }
 
 async function getJokeApi() {
-    const response = await fetch('https://v2.jokeapi.dev/joke/Programming')
+    const response = await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,racist,political,sexist,explicit');
     var objects = await response.json();
+    let jokeLabel = document.getElementById("joke-label");
+    jokeLabel.innerHTML = "";
     if (objects.type === 'single') {
-        console.log(objects.joke)
+        jokeLabel.appendChild(document.createTextNode(objects.joke));
+        console.log(objects.joke);
     } else {
+        jokeLabel.appendChild(document.createTextNode(objects.setup + " " + objects.delivery));
         console.log(objects.setup + " " + objects.delivery);
     }
 }
@@ -149,3 +153,5 @@ async function getDrinkApi() {
     console.log('The object is assigned');
     console.log(objects);
 }
+
+getJokeApi();
