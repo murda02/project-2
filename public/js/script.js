@@ -113,10 +113,37 @@ async function getMovieApi(url) {
     console.log(objects);
     let movieList = document.getElementById("movie-list");
     movieList.innerHTML = "";
+    createCards(objects);
+    /*
     for (let i = 0; i < 5; i++) {
         var movieTitle = document.createElement("li");
         movieTitle.appendChild(document.createTextNode(objects.results[i].original_title));
         movieList.appendChild(movieTitle);
+    }
+    */
+}
+
+function createCards(objects) {
+    let cardsWrap = document.getElementById('cards_wrap');
+    cardsWrap.innerHTML = "";
+    for (let i = 0; i < 5; i ++) {
+        var cards = document.createElement('div');
+        cards.innerHTML = `
+        <div class="card_item">
+            <div class="card_inner">
+                <div class="card_top">
+                    <h1>${objects.results[i].original_title}</h1>
+                </div>
+                <div class="card_bottom">
+                    <div class="card_info">
+                        <p class="description">${objects.results[i].overview}</p>
+                        <button id="save-to-user">Save to User</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
+        cardsWrap.appendChild(cards);
     }
 }
 
