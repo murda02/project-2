@@ -12,16 +12,22 @@ const {User} = require('../../models');
 // });
 
 //GET a single user
-router.get('/:id', async (req, res) => {
-    try {
-        const userData = await User.findByPk(req.params.id);
+router.get('/', async (req, res) => {
+  
+  try {
+    const userData = await User.findByPk(req.session.user_id);
+    
+    if (!userData) {
+      res.status(404).json({ message: 'User not found'});
+      return;
+    }
+    
+    const user1 = JSON.stringify(userData)
+    const user2 = JSON.parse(user1)
 
-        if (!userData) {
-            res.status(404).json({ message: 'User not found'});
-            return;
-        }
+    console.log("!!!!!!!!!!!!!!!!!!!!" +user2)
 
-        res.status(200).json(userData);
+        res.render("userpage", user2);
     } catch (error) {
         res.status(500).json(error);
     }
