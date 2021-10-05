@@ -34,7 +34,20 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      if (email && password) {
+        const response = await fetch('/api/user/login', {
+          method: 'POST',
+          body: JSON.stringify({ email, password }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+    
+        if (response.ok) {
+          window.location = window.location;
+          document.location.replace('/');
+        } else {
+          alert(response.statusText);
+        }
+      }
     } else {
       alert(response.statusText);
     }
