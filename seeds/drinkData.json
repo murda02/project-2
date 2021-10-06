@@ -1,17 +1,14 @@
 [
   {
     "name": "Martini",
-    "description": "get drunk",
-    "ingredients": "vodka, gin"
+    "description": "get drunk"
   },
   {
     "name": "Old Fashioned",
-    "description": "get drunk in style",
-    "ingredients": "whiskey"
+    "description": "get drunk in style"
   },
   {
     "name": "Cuba Libra",
-    "description": "fancy rum and coke",
-    "ingredients": "rum, coke, lime wedge"
+    "description": "fancy rum and coke"
   }
 ]

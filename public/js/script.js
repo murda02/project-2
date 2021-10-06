@@ -2,6 +2,7 @@ let movieBtn = document.getElementById('movie-btn');
 let closeBtn = document.querySelector('#close-btn');
 let popupModal = document.querySelector('.modal');
 
+
 //function to compute the genre
 function myGenre() {
     var genreList = document.getElementById("genreList");
@@ -126,13 +127,17 @@ function createMovieCards(objects) {
                 <div class="card_bottom">
                     <div class="card_info">
                         <p class="description">${objects.results[i].overview}</p>
-                        <button id="save-movie">Save to User</button>
+                        <button id="save-movie${i}">Save to User</button>
                     </div>
                 </div>
             </div>
         </div>
         `
         cardsWrap.appendChild(cards);
+        let saveMovie = document.getElementById(`save-movie${i}`);
+        saveMovie.addEventListener('click', function() {
+            console.log("save movie button works!");
+        })
     }
 }
 

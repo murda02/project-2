@@ -18,9 +18,6 @@ Drink.init(
     description: {
       type: DataTypes.STRING,
     },
-    ingredients: {
-        type: DataTypes.STRING,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
