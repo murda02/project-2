@@ -135,8 +135,19 @@ function createMovieCards(objects) {
         `
         cardsWrap.appendChild(cards);
         let saveMovie = document.getElementById(`save-movie${i}`);
-        saveMovie.addEventListener('click', function() {
+        saveMovie.addEventListener('click', async function() {
             console.log("save movie button works!");
+            await fetch('/api/movie', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: objects.results[i].original_title,
+                    overview: objects.results[i].overview,
+                })
+            });
+            console.log('Fetch request worked');
         })
     }
 }

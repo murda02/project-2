@@ -11,18 +11,13 @@ Movie.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    genre: {
-      type: DataTypes.STRING,
-    },
-    year: {
-        type: DataTypes.INTEGER
-    },
-    rating: {
-        type: DataTypes.INTEGER
+    overview: {
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,

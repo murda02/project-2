@@ -16,11 +16,25 @@ router.get('/', async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/api/user/');
+    res.redirect('/user');
     return;
   }
 
   res.render('login');
+});
+
+router.get('/user', async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  const userData = await User.findOne({
+    where: {
+      id: req.session.user_id
+    },
+    include: Movie,
+  });
+  res.render('userpage', {name: userData.name, movies: userData.movies.map((movie) => movie.get({plain: true}))});
 });
 
 module.exports = router;

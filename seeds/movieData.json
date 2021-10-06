@@ -1,20 +1,14 @@
 [
   {
-    "name": "Fight Club",
-    "genre": "action",
-    "year": 1999,
-    "rating": 9
+    "title": "Fight Club",
+    "overview": "great movie...."
   },
   {
-    "name": "The Big Lebowski",
-    "genre": "comedy",
-    "year": 1998,
-    "rating": 7
+    "title": "The Big Lebowski",
+    "overview": "great movie...."
   },
   {
-    "name": "The Matrix",
-    "genre": "action",
-    "year": 1999,
-    "rating": 8
+    "title": "The Matrix",
+    "overview": "great movie...."
   }
 ]

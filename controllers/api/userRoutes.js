@@ -1,5 +1,5 @@
 const router = require ('express').Router();
-const {User} = require('../../models');
+const {User, Movie} = require('../../models');
 
 //GET all users
 // router.get('/', async (req, res) => {
@@ -15,7 +15,17 @@ const {User} = require('../../models');
 router.get('/', async (req, res) => {
   
   try {
-    const userData = await User.findByPk(req.session.user_id);
+    const userData = await User.find({
+      where: {
+        id: req.session.user_id
+      },
+      include: [{
+        model: Movie,
+        where: {
+          user_id: req.session.user_id,
+        }
+      }],
+    });
     
     if (!userData) {
       res.status(404).json({ message: 'User not found'});
