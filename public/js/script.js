@@ -89,9 +89,8 @@ function computeTime(inputTime) {
 // Movie submit button takes in genre, release year, and runtime, checks to make sure all exist, then runs makeUrl, otherwise alerts user to fill out info.
 movieBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    
-    //getJokeApi();
-    //getDrinkApi();
+
+    getDrinkApi();
     let genre = myGenre();
     let releaseYear = document.getElementById('year').value;
     let runtime = document.getElementById('runtime').value;
@@ -110,20 +109,10 @@ closeBtn.addEventListener('click', function() {
 async function getMovieApi(url) {
     const response = await fetch(url);
     var objects = await response.json();
-    console.log(objects);
-    let movieList = document.getElementById("movie-list");
-    movieList.innerHTML = "";
-    createCards(objects);
-    /*
-    for (let i = 0; i < 5; i++) {
-        var movieTitle = document.createElement("li");
-        movieTitle.appendChild(document.createTextNode(objects.results[i].original_title));
-        movieList.appendChild(movieTitle);
-    }
-    */
+    createMovieCards(objects);
 }
 
-function createCards(objects) {
+function createMovieCards(objects) {
     let cardsWrap = document.getElementById('cards_wrap');
     cardsWrap.innerHTML = "";
     for (let i = 0; i < 5; i ++) {
@@ -137,7 +126,7 @@ function createCards(objects) {
                 <div class="card_bottom">
                     <div class="card_info">
                         <p class="description">${objects.results[i].overview}</p>
-                        <button id="save-to-user">Save to User</button>
+                        <button id="save-movie">Save to User</button>
                     </div>
                 </div>
             </div>
@@ -165,20 +154,25 @@ async function getJokeApi() {
     jokeLabel.innerHTML = "";
     if (objects.type === 'single') {
         jokeLabel.appendChild(document.createTextNode(objects.joke));
-        console.log(objects.joke);
     } else {
         jokeLabel.appendChild(document.createTextNode(objects.setup + " " + objects.delivery));
-        console.log(objects.setup + " " + objects.delivery);
     }
 }
 
-async function getDrinkApi() {
-    console.log('This function is initialized'); 
-    const response = await fetch('www.thecocktaildb.com/api/json/v1/1/random.php')
-    console.log('A response is created');
-    var objects = await response.json(); // There's something off here. Will fix in next push
-    console.log('The object is assigned');
-    console.log(objects);
+async function getDrinkApi() { 
+    const response = await fetch('https://thecocktaildb.com/api/json/v1/1/random.php');
+    var drinkObjects = await response.json();
+    createDrinkCard(drinkObjects);
+}
+
+function createDrinkCard(drinkObjects) {
+    let cocktailCard = document.getElementById('cocktail-contents');
+    cocktailCard.innerHTML = "";
+    cocktailCard.innerHTML = `
+    <h2>${drinkObjects.drinks[0].strDrink}</h2>
+    <p>${drinkObjects.drinks[0].strInstructions}</p>
+    <button id='save-drink'>Save Cocktail</button>
+    `
 }
 
 getJokeApi();
