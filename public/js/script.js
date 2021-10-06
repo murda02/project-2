@@ -136,7 +136,6 @@ function createMovieCards(objects) {
         cardsWrap.appendChild(cards);
         let saveMovie = document.getElementById(`save-movie${i}`);
         saveMovie.addEventListener('click', async function() {
-            console.log("save movie button works!");
             await fetch('/api/movie', {
                 method: 'POST',
                 headers: {
@@ -147,7 +146,6 @@ function createMovieCards(objects) {
                     overview: objects.results[i].overview,
                 })
             });
-            console.log('Fetch request worked');
         })
     }
 }
@@ -189,6 +187,21 @@ function createDrinkCard(drinkObjects) {
     <p>${drinkObjects.drinks[0].strInstructions}</p>
     <button id='save-drink'>Save Cocktail</button>
     `
+    let saveDrink = document.getElementById('save-drink');
+    saveDrink.addEventListener('click', async function() {
+        console.log('event listener works');
+        await fetch('/api/drink', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: drinkObjects.drinks[0].strDrink,
+                description: drinkObjects.drinks[0].strInstructions,
+            })
+        });
+        console.log('fetch worked!');
+    })
 }
 
 getJokeApi();

@@ -30,12 +30,14 @@ try {
 
 //CREATE a drink
 router.post('/', async (req, res) => {
-try {
-    const drinkData = await Drink.create(req.body);
-    res.status(200).json(drinkData);
-} catch (err) {
-    res.status(400).json(err);
-}
+    try {
+        const drinkData = await Drink.create({
+        ...req.body,
+        user_id: req.session.user_id});
+        res.status(200).json(drinkData);
+    } catch (err) {
+        res.status(400).json(err);
+    }
 });
 
 // DELETE a drink

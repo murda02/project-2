@@ -32,9 +32,10 @@ router.get('/user', async (req, res) => {
     where: {
       id: req.session.user_id
     },
-    include: Movie,
+    include: [Movie, Drink]
   });
-  res.render('userpage', {name: userData.name, movies: userData.movies.map((movie) => movie.get({plain: true}))});
+  console.log(userData);
+  res.render('userpage', {name: userData.name, movies: userData.movies.map((movie) => movie.get({plain: true})), drinks: userData.drinks.map((drink) => drink.get({plain: true}))});
 });
 
 module.exports = router;

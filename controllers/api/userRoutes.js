@@ -1,49 +1,6 @@
 const router = require ('express').Router();
 const {User, Movie} = require('../../models');
 
-//GET all users
-// router.get('/', async (req, res) => {
-//     try {
-//         const userData = await User.findALl();
-//         res.status(200).json(userData);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
-//GET a single user
-router.get('/', async (req, res) => {
-  
-  try {
-    const userData = await User.find({
-      where: {
-        id: req.session.user_id
-      },
-      include: [{
-        model: Movie,
-        where: {
-          user_id: req.session.user_id,
-        }
-      }],
-    });
-    
-    if (!userData) {
-      res.status(404).json({ message: 'User not found'});
-      return;
-    }
-    
-    const user1 = JSON.stringify(userData)
-    const user2 = JSON.parse(user1)
-
-    console.log("!!!!!!!!!!!!!!!!!!!!" +user2)
-
-        res.render("userpage", user2);
-    } catch (error) {
-        res.status(500).json(error);
-    }
-});
-
-
 //CREATE a user
 router.post('/', async (req, res) => {
     try {
