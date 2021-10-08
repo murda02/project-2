@@ -35,7 +35,10 @@ router.get('/user', async (req, res) => {
     include: [Movie, Drink]
   });
   console.log(userData);
-  res.render('userpage', {name: userData.name, movies: userData.movies.map((movie) => movie.get({plain: true})), drinks: userData.drinks.map((drink) => drink.get({plain: true}))});
+  const movies = userData.movies.map((movie) => movie.get({plain: true}));
+  const drinks = userData.drinks.map((drink) => drink.get({plain: true}));
+  res.render('userpage', { name: userData.name, movies, drinks, logged_in: req.session.logged_in });
 });
+
 
 module.exports = router;

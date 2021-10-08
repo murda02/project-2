@@ -3,11 +3,6 @@ body{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-header, span{
-  border-bottom: 1px solid rgb(235, 23, 23);
-  color: rgb(19, 158, 112);
-}
-
 .card, .card_item {
   padding: 20px;
 }
@@ -32,7 +27,7 @@ header, span{
   padding-left: 20px;
 }
 
-/* #joke-label {
-  width: 80%
-} */
+#accout-name {
+  font-size: 3rem;
+}
 
