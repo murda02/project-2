@@ -115,14 +115,16 @@ async function getMovieApi(url) {
 
 function createMovieCards(objects) {
     let cardsWrap = document.getElementById('cards_wrap');
-    cardsWrap.innerHTML = "";
+    cardsWrap.innerHTML = `
+    <h1>Returned Movies</h1>
+    `;
     for (let i = 0; i < 5; i ++) {
         var cards = document.createElement('div');
         cards.innerHTML = `
         <div class="card_item">
             <div class="card_inner">
                 <div class="card_top">
-                    <h1>${objects.results[i].original_title}</h1>
+                    <h3>${objects.results[i].original_title}</h3>
                 </div>
                 <div class="card_bottom">
                     <div class="card_info">
@@ -183,9 +185,12 @@ function createDrinkCard(drinkObjects) {
     let cocktailCard = document.getElementById('cocktail-contents');
     cocktailCard.innerHTML = "";
     cocktailCard.innerHTML = `
-    <h2>${drinkObjects.drinks[0].strDrink}</h2>
-    <p>${drinkObjects.drinks[0].strInstructions}</p>
-    <button id='save-drink'>Save Cocktail</button>
+    <div class="card" style="width: 25rem, display: inline">
+        <h1>Cocktail</h1>
+        <h3>${drinkObjects.drinks[0].strDrink}</h3>
+        <p class=description>${drinkObjects.drinks[0].strInstructions}</p>
+        <button id='save-drink'>Save Cocktail</button>
+    </div>
     `
     let saveDrink = document.getElementById('save-drink');
     saveDrink.addEventListener('click', async function() {

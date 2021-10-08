@@ -2,12 +2,12 @@
     <h1>{{name}}'s Account</h1>
     <h2>Movies</h2>
     {{#each movies as |movie|}}
-    <h3>{{movie.title}}</h3>
-    <p>{{movie.overview}}</p>
+    <h4 class="title">{{movie.title}}</h4>
+    <p class="description-user">{{movie.overview}}</p>
     {{/each}}
     <h2>Drinks</h2>
     {{#each drinks as |drink|}}
-    <h3>{{drink.name}}</h3>
-    <p>{{drink.description}}</p>
+    <h4 class="title">{{drink.name}}</h4>
+    <p class="description-user">{{drink.description}}</p>
     {{/each}}
 </div>

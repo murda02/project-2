@@ -1,15 +1,19 @@
 body{
-  background-color: rgb(204, 201, 197);
+  background-color: whitesmoke;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-header, span, .project:not(:last-child) {
+header, span{
   border-bottom: 1px solid rgb(235, 23, 23);
   color: rgb(19, 158, 112);
 }
-form,ul {
-  background-color:rgb(164, 164, 196);
-  
+
+.card, .card_item {
+  padding: 20px;
+}
+
+.description, .description-user {
+  font-size: 15px;
 }
 
 .modal {
@@ -22,6 +26,10 @@ form,ul {
   left: calc(50% - 140px);
   z-index: 1;
   border-radius: 10px;
+}
+
+.title, .description-user {
+  padding-left: 20px;
 }
 
 /* #joke-label {
