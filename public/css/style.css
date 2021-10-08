@@ -44,3 +44,8 @@ body{
   background-color: whitesmoke;
   color: #008CBA;
 }
+
+
+#save-drink, #save-movie0, #save-movie1, #save-movie2, #save-movie3, #save-movie4, #movie-btn {
+  cursor: pointer;
+}
