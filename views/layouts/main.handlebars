@@ -18,10 +18,12 @@
         {{> banner}}
       </h1>
       <nav>
-        <!-- Conditionally render login or logout links -->
+        <!-- If logged in AND on homepage, display /user and logout button
+            else if logged in AND on user page, display logout button 
+            else display /login-->
         {{#if logged_in}}
-        <a href="/user">user page</a>
-        <button class="no-button" id="logout">logout</button>
+          <a id="top-nav-link" href="/user">user page</a>
+          <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
@@ -40,6 +42,7 @@
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+  <script src="/js/main.js"></script>
 </body>
 
 </html>
